@@ -10,6 +10,7 @@
 #include <thread>
 #include <memory>
 #include "JSIStoreValueUser.h"
+#include "ReanimatedHiddenHeaders.h"
 
 using namespace facebook;
 
@@ -222,13 +223,18 @@ void NativeReanimatedModule::onRender(double timestampMs)
 {
   try
   {
-    std::vector<FrameCallback> callbacks = frameCallbacks;
-    frameCallbacks.clear();
-    for (auto& callback : callbacks)
-    {
-      callback(timestampMs);
-    }
-    mapperRegistry->execute(*runtime);
+  SpeedChecker::checkSpeed("animations", [&]() {
+      std::vector<FrameCallback> callbacks = frameCallbacks;
+      frameCallbacks.clear();
+      for (auto& callback : callbacks)
+      {
+        callback(timestampMs);
+      }
+  });
+      
+  SpeedChecker::checkSpeed("mappers", [&]() {
+      mapperRegistry->execute(*runtime);
+  });
 
     if (mapperRegistry->needRunOnRender())
     {

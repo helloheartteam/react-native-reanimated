@@ -11,7 +11,7 @@ import Animated, {
 import { View, Button } from 'react-native';
 import React from 'react';
 
-const dummy = new Array(1).fill(1);
+const dummy = new Array(100).fill(1);
 function AnimatedStyleUpdateExample() {
   return (
     <View style={{ flex: 1, flexDirection: "row", flexWrap: "wrap" }}>

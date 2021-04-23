@@ -52,7 +52,6 @@ export function useEvent(handler, eventNames = [], rebuild = false) {
 
 function prepareAnimation(animatedProp, lastAnimation, lastValue) {
   'worklet';
-  function prepareAnimation(animatedProp, lastAnimation, lastValue) {
     if (Array.isArray(animatedProp)) {
       animatedProp.forEach((prop, index) =>
         prepareAnimation(
@@ -102,13 +101,10 @@ function prepareAnimation(animatedProp, lastAnimation, lastValue) {
         )
       );
     }
-  }
-  return prepareAnimation(animatedProp, lastAnimation, lastValue);
 }
 
 function runAnimations(animation, timestamp, key, result, animationsActive) {
   'worklet';
-  function runAnimations(animation, timestamp, key, result, animationsActive) {
     if (!animationsActive.value) {
       return true;
     }
@@ -160,8 +156,6 @@ function runAnimations(animation, timestamp, key, result, animationsActive) {
       result[key] = animation;
       return true;
     }
-  }
-  return runAnimations(animation, timestamp, key, result, animationsActive);
 }
 
 function isAnimated(prop) {
