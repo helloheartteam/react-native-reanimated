@@ -11,7 +11,7 @@ rescue
 end
 
 rnVersion = reactVersion.split('.')[1]
-
+rnVersion = '64'
 folly_prefix = ""
 if rnVersion.to_i >= 64
   folly_prefix = "RCT-"

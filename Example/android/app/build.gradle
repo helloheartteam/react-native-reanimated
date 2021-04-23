@@ -1,3 +1,5 @@
+def useIntlJsc = true
+
 apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
@@ -153,6 +155,8 @@ android {
 }
 
 dependencies {
+    implementation "org.webkit:android-jsc:+"
+
     implementation project(':@react-native-community_masked-view')
     implementation project(':react-native-svg')
     implementation project(':react-native-safe-area-context')

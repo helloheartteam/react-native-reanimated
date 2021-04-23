@@ -1,3 +1,5 @@
+def useIntlJsc = true
+
 def localProps = new Properties()
 def localPropertiesFile = file("local.properties")
 if (localPropertiesFile.exists()) {
@@ -458,6 +460,7 @@ repositories {
 
 dependencies {
     //noinspection GradleDynamicVersion
+    implementation "org.webkit:android-jsc:+"
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation "androidx.transition:transition:1.1.0"
     api("com.facebook.fbjni:fbjni-java-only:0.0.3")
